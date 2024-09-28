@@ -28,9 +28,9 @@ used_narrations = {
     "shadow": []
 }
 
-def get_unique_narration(character, type_of_narration, llm: ChatModel):
+def get_unique_narration(character, stage, llm: ChatModel):
     narration_pool = (RESISTANCE_NARRATION_VARIATIONS if character == "resistance_leader" 
-                      else SHADOW_NARRATION_VARIATIONS)[type_of_narration]
+                      else SHADOW_NARRATION_VARIATIONS)[stage]
     unused_narrations = [n for n in narration_pool if n not in used_narrations[character]]
     
     if not unused_narrations:
