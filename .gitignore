@@ -5,6 +5,9 @@
 # A .gitignore file will tell git which files and directories to ignore and
 # not add to version control.
 
+*.env
+story/baml_client
+
 # Executables and debug files
 main
 *.exe
