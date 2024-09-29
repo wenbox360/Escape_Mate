@@ -16,5 +16,7 @@ Now that you've generated a new scenario, you need some way to guide players thr
 
 ## Sponsor Tools ##
 (BoundaryML)[https://www.boundaryml.com/]
+
 (Cartesia AI)[https://cartesia.ai/]
+
 (Groq)[https://groq.com/]
