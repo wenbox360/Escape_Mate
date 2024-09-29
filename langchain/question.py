@@ -1,4 +1,3 @@
-from langchain.chat_models import ChatModel
 STATES_COMMON_QA = {
     "stage1":{
             "1": "The end of the long wire with an red head should be secured into your device's port section not covered with blue tape. ",
