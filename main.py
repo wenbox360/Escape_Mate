@@ -11,7 +11,7 @@ with open('text.json', 'r') as file:
 
     stage_index = 0
 
-    tts(data['breif'])
+    tts(data['brief'])
     tts(data['introduction'])
 
     for stage in stages:
