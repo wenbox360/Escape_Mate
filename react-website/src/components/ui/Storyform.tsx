@@ -41,6 +41,16 @@ const StoryForm: React.FC = () => {
     }
   };
 
+  const runGame = async () => {
+    try {
+      const response = await axios.post('/api/runGame', {
+      });
+      console.log('Run action response:', response.data);
+    } catch (error) {
+      console.error('Error running action:', error);
+    }
+  };
+
   const resetForm = () => {
     // Reset form fields and story state
     setTheme('');
@@ -114,8 +124,13 @@ const StoryForm: React.FC = () => {
             Generate Story
           </Button>
 
+          {/* Run Button */}
+          <Button type="button" variant="outline" className="w-full" onClick={runGame} disabled={!story}>
+            Run
+          </Button>
+
           {/* Reset Button */}
-          <Button type="button" variant="outline" className="w-full mt-2" onClick={resetForm}>
+          <Button type="button" variant="outline" className="w-full" onClick={resetForm} disabled={!story}>
             Reset
           </Button>
         </form>
@@ -125,7 +140,7 @@ const StoryForm: React.FC = () => {
           <div className="mt-8 p-4 bg-background text-foreground rounded-md shadow-md">
             <h2 className="text-xl font-bold">Generated Story</h2>
             <p><strong>Intro:</strong> {story.intro}</p>
-            <h3 className="font-bold">Stages:</h3>
+            <h3 className="font-bold my-4">Stages:</h3>
             <ul>
               {story.stages.map((stage, index) => (
                 <div key={index}>
@@ -135,8 +150,8 @@ const StoryForm: React.FC = () => {
                 </div>
               ))}
             </ul>
-            <p><strong>Good Ending:</strong> {story.good_ending}</p>
-            <p><strong>Bad Ending:</strong> {story.bad_ending}</p>
+            <p className="my-4"><strong>Good Ending:</strong> {story.good_ending}</p>
+            <p className="my-4"><strong>Bad Ending:</strong> {story.bad_ending}</p>
           </div>
         )}
       </div>

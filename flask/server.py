@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
 from baml_client import b, reset_baml_env_vars
 from baml_client.types import StoryParams, Stage, Story
+
+from game import run
+
 import dotenv
 import os
+import json
 
 app = Flask(__name__)
 
@@ -42,11 +46,29 @@ def generate_story():
             "good_ending": output.good_ending,
             "bad_ending": output.bad_ending
         }
+
+        with open('data.json', 'w') as file:
+            file.write(json.dumps(modified_story))
+
         return jsonify(modified_story)
     
     except Exception as e:
         print('Error generating story:', e)
         return jsonify({'error': 'Failed to generate story'}), 500
+
+
+@app.route('/run', methods=['POST'])
+def run_game():
+    try:
+        story_obj = None
+        with open('data.json', 'r') as file:
+            story_obj = json.loads(file.read())
+        run(story_obj)
+        return jsonify({'success': 'null'}), 200
+    except Exception as e:
+        print('Error running game:', e)
+        return jsonify({'error': 'game run went wrong'}), 500
+
 
 if __name__ == '__main__':
     dotenv.load_dotenv()
