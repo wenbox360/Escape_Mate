@@ -1,8 +1,7 @@
 import serial
 from time import sleep
 
-
-
+#Simple demo game
 def game():
     while True:
         ser = serial.Serial ("/dev/ttyAMA0", 9600)    #Open port with baud rate

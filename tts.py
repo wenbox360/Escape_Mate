@@ -2,8 +2,8 @@ from cartesia import Cartesia
 import pyaudio
 import os
 
-def tts(user_transcript):
-    client = Cartesia(api_key=os.environ.get("CARTESIA_API_KEY"))
+def create_audio(user_transcript):
+    client = Cartesia(api_key=os.environ.get("c9e1bac7-37b1-4c93-ac5a-a401b2ed101d"))
     voice_name = "Barbershop Man"
     voice_id = "2461f054-b556-48f5-bc6d-362232d335ab"
     voice = client.voices.get(id=voice_id)

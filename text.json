@@ -1,0 +1,23 @@
+{
+    "brief": "You and your friend are Tanay Sharma's closest friends. He has tasked you with helping him win the heart of the girl he loves. Can you help him rizz his way to success?",
+    "intro": "You and your friend are sitting in Tanay's dorm room, trying to help him come up with a plan to ask his crush out on a date. He's nervous and relies on you to give him the confidence to make his move. You have 20 minutes to help Tanay rizz his way to love.",
+    "stages": [
+      {
+        "description": "You find Tanay's crush's social media handle on his phone. You need to come up with a clever DM to send her. Work together to craft the perfect message that will make her say yes to a date.",
+        "success_message": "You've sent the DM and she's agreed to go on a date with Tanay! You've got a date to plan.",
+        "failure_message": "The DM was a flop. She didn't respond or blocked Tanay. You need to come up with a new plan."
+      },
+      {
+        "description": "You've planned the perfect date, but now you need to make sure everything goes smoothly. Work together to set the mood, choose a restaurant, and pick out an outfit for Tanay.",
+        "success_message": "The date is going amazingly! Tanay is charming and the girl is laughing. You're one step closer to helping him get the girl.",
+        "failure_message": "Disaster! The restaurant is closed, or Tanay spilled something on his shirt. The date is going downhill fast."
+      },
+      {
+        "description": "The date is ending, and it's time for the kiss. You need to give Tanay the courage to make his move.",
+        "success_message": "Tanay went for it and got the kiss! You've helped him rizz his way to love.",
+        "failure_message": "Tanay chickened out, and the girl left. You didn't help him rizz his way to love."
+      }
+    ],
+    "good_ending": "Tanay thanks you and your friend for helping him win the heart of his crush. You've helped him rizz his way to love, and he's forever grateful. You escape the room with a sense of pride and accomplishment.",
+    "bad_ending": "Tanay is devastated, and his crush is now avoiding him. You didn't help him rizz his way to love, and now he's more nervous than ever. You're trapped in the room, feeling sorry for your friend."
+  }
