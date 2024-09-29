@@ -9,10 +9,10 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 
 const StoryForm: React.FC = () => {
   const [theme, setTheme] = useState<string>('');
-  const [difficulty, setDifficulty] = useState<string>('Easy');
+  const [difficulty, setDifficulty] = useState<string>('');
   const [stages, setStages] = useState<string[]>(['']);
-  const [numPlayers, setNumPlayers] = useState<number>(2);
-  const [timeLimit, setTimeLimit] = useState<number>(20);
+  const [numPlayers, setNumPlayers] = useState<number>();
+  const [timeLimit, setTimeLimit] = useState<number>();
   const [story, setStory] = useState<Story | null>(null);
   const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
 
@@ -56,11 +56,20 @@ const StoryForm: React.FC = () => {
     setTheme('');
     setDifficulty('Easy');
     setStages(['']);
-    setNumPlayers(2);
-    setTimeLimit(20);
+    setNumPlayers(0);
+    setTimeLimit(0);
     setStory(null);
     setIsButtonClicked(false);
   };
+
+  const demoForm = () => {
+    setTheme('Escape from a submarine');
+    setDifficulty('Hard');
+    setStages(['There is a box with 5 switches, each connected to a light. Each light can be different colors. Make all the lights match by flipping switches.']);
+    setNumPlayers(3);
+    setTimeLimit(25);
+    setIsButtonClicked(false);
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-background text-foreground p-4">
@@ -77,7 +86,7 @@ const StoryForm: React.FC = () => {
           />
 
           {/* Difficulty Select */}
-          <Select onValueChange={(value) => setDifficulty(value)} defaultValue={difficulty}>
+          <Select onValueChange={(value) => setDifficulty(value)} value={difficulty}>
             <SelectTrigger className="w-full bg-white text-black">
               <SelectValue placeholder="Select Difficulty" />
             </SelectTrigger>
@@ -114,10 +123,15 @@ const StoryForm: React.FC = () => {
           <Input
             className="w-full bg-white text-black"
             type="number"
-            placeholder="Time Limit (in minutes)"
+            placeholder="Time Limit (minutes)"
             value={timeLimit}
             onChange={(e) => setTimeLimit(parseInt(e.target.value))}
           />
+
+          {/* Reset Button */}
+          <Button type="button" variant="default" className="w-full" onClick={demoForm}>
+            Fill Demo
+          </Button>
 
           {/* Submit Button */}
           <Button type="submit" variant="default" className="w-full" disabled={isButtonClicked}>
