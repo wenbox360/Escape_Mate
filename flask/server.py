@@ -7,6 +7,7 @@ from game import run
 import dotenv
 import os
 import json
+import asyncio
 
 app = Flask(__name__)
 
@@ -63,7 +64,7 @@ def run_game():
         story_obj = None
         with open('data.json', 'r') as file:
             story_obj = json.loads(file.read())
-        run(story_obj)
+        asyncio.run(run(story_obj))
         return jsonify({'success': 'null'}), 200
     except Exception as e:
         print('Error running game:', e)

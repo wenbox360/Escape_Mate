@@ -4,6 +4,11 @@
     "stages": [
       {
         "description": "You find Tanay's crush's social media handle on his phone. You need to come up with a clever DM to send her. Work together to craft the perfect message that will make her say yes to a date.",
+        "motivational messages": [
+          "You can do it! You're Tanay's wingman, and you've got this.",
+          "You're the master of DMs. You know how to slide into those messages like a pro.",
+          "You've got the gift of gab. You can charm anyone with your words."
+        ],
         "success_message": "You've sent the DM and she's agreed to go on a date with Tanay! You've got a date to plan.",
         "failure_message": "The DM was a flop. She didn't respond or blocked Tanay. You need to come up with a new plan."
       },

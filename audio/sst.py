@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import sounddevice
-
+import asynico
 
 # Define the code word to detect
 CODE_WORD = "shadow"
@@ -12,7 +12,7 @@ recognizer.energy_threshold = 400
 
 
 # Use microphone as the audio input
-def recognize_speech():
+async def recognize_speech(question_queue):
            with sr.Microphone() as source:
                #Adjusting for ambient noise
                recognizer.adjust_for_ambient_noise(source, duration=1)  # Adjust for background noise
@@ -27,7 +27,8 @@ def recognize_speech():
                    if text.split()[0].lower() == CODE_WORD.lower():
                        # Placeholder for the action to be taken
                        print(f"You said: {text}")
-                       command = text
+                       command = text 
+                       await question_queue.put(text)
                except sr.UnknownValueError:
                    # If speech is unintelligible
                    print("Sorry, I could not understand. Could you say that again?") # Placeholder for the action to be taken
