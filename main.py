@@ -11,18 +11,18 @@ with open('text.json', 'r') as file:
 
     stage_index = 0
 
-    tts(data['brief'])
-    tts(data['introduction'])
+    create_audio(data['brief'])
+    create_audio(data['introduction'])
 
     for stage in stages:
-        tts(stage['stage_intro'])
-        tts(stage['stage_instructions'])
+        create_audio(stage['stage_intro'])
+        create_audio(stage['stage_instructions'])
         completed = False
         while(completed is False):
             completed = game()
         if stage_index < len(stages) - 1:
-            tts(data['next_stage'])
+            create_audio(data['next_stage'])
 
         stage_index += 1
     
-    tts(data['good_ending'])
+    create_audio(data['good_ending'])
