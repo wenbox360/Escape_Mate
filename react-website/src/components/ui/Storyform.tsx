@@ -14,8 +14,10 @@ const StoryForm: React.FC = () => {
   const [numPlayers, setNumPlayers] = useState<number>(2);
   const [timeLimit, setTimeLimit] = useState<number>(20);
   const [story, setStory] = useState<Story | null>(null);
+  const [isButtonClicked, setIsButtonClicked] = useState<boolean>(false);
 
   const handleAddStage = () => setStages([...stages, '']);
+  
   const handleStageChange = (index: number, value: string) => {
     const newStages = [...stages];
     newStages[index] = value;
@@ -24,6 +26,7 @@ const StoryForm: React.FC = () => {
 
   const generateStory = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsButtonClicked(true); 
     try {
       const response = await axios.post<Story>('/api/generateStory', {
         theme,
@@ -36,6 +39,17 @@ const StoryForm: React.FC = () => {
     } catch (error) {
       console.error('Error generating story:', error);
     }
+  };
+
+  const resetForm = () => {
+    // Reset form fields and story state
+    setTheme('');
+    setDifficulty('Easy');
+    setStages(['']);
+    setNumPlayers(2);
+    setTimeLimit(20);
+    setStory(null);
+    setIsButtonClicked(false);
   };
 
   return (
@@ -74,7 +88,8 @@ const StoryForm: React.FC = () => {
               onChange={(e) => handleStageChange(index, e.target.value)}
             />
           ))}
-          <Button variant="outline" onClick={handleAddStage} className="self-center">
+          {/* Prevent form submission on clicking this button */}
+          <Button type="button" variant="outline" onClick={handleAddStage} className="self-center">
             Add Stage
           </Button>
 
@@ -95,8 +110,13 @@ const StoryForm: React.FC = () => {
           />
 
           {/* Submit Button */}
-          <Button type="submit" variant="default" className="w-full">
+          <Button type="submit" variant="default" className="w-full" disabled={isButtonClicked}>
             Generate Story
+          </Button>
+
+          {/* Reset Button */}
+          <Button type="button" variant="outline" className="w-full mt-2" onClick={resetForm}>
+            Reset
           </Button>
         </form>
 
@@ -107,8 +127,12 @@ const StoryForm: React.FC = () => {
             <p><strong>Intro:</strong> {story.intro}</p>
             <h3 className="font-bold">Stages:</h3>
             <ul>
-              {story.stage_descriptions.map((stage, index) => (
-                <li key={index}>Stage {index + 1}: {stage}</li>
+              {story.stages.map((stage, index) => (
+                <div key={index}>
+                  <li className="my-4">Stage {index + 1}: {stage.description}</li>
+                  <p>Success Message: {stage.success_message}</p>
+                  <p>Failure Message: {stage.failure_message}</p>
+                </div>
               ))}
             </ul>
             <p><strong>Good Ending:</strong> {story.good_ending}</p>
@@ -119,5 +143,5 @@ const StoryForm: React.FC = () => {
     </div>
   );
 };
-
+  
 export default StoryForm;

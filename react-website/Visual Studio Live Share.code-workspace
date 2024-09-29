@@ -1,0 +1,25 @@
+{"folders":[
+		{
+			"name": "MHacks-F24",
+			"uri": "vsls:/"
+		}
+	],
+    "settings": {
+        "extensions.ignoreRecommendations": true,
+        "editor.detectIndentation": true,
+        "editor.formatOnSave": false,
+        "files.hotExit": "off",
+        "files.autoSave": "off",
+        "files.trimTrailingWhitespace": false,
+        "files.insertFinalNewline": false,
+        "files.trimFinalNewlines": false,
+        "typescript.tsc.autoDetect": "off",
+        "jake.autoDetect": "off",
+        "grunt.autoDetect": "off",
+        "gulp.autoDetect": "off",
+        "npm.autoDetect": "off",
+        "debug.allowBreakpointsEverywhere": true,
+        "html.autoClosingTags": false
+    },
+    "transient": true
+}
