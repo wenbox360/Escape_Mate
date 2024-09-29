@@ -6,7 +6,7 @@
 # not add to version control.
 
 *.env
-story/baml_client
+*/baml_client
 
 # Executables and debug files
 main
