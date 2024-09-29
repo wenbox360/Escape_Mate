@@ -10,19 +10,17 @@ with open('text.json', 'r') as file:
     stages = data['stages']
 
     stage_index = 0
-
+    
     create_audio(data['brief'])
-    create_audio(data['introduction'])
-
+    create_audio(data['intro'])
+    
     for stage in stages:
-        create_audio(stage['stage_intro'])
-        create_audio(stage['stage_instructions'])
+        create_audio(stage['description'])
         completed = False
         while(completed is False):
             completed = game()
-        if stage_index < len(stages) - 1:
-            create_audio(data['next_stage'])
-
-        stage_index += 1
+        create_audio(stage['success_message'])
+        
     
     create_audio(data['good_ending'])
+

@@ -3,9 +3,9 @@ import pyaudio
 import os
 
 def create_audio(user_transcript):
-    client = Cartesia(api_key=os.environ.get("c9e1bac7-37b1-4c93-ac5a-a401b2ed101d"))
-    voice_name = "Barbershop Man"
-    voice_id = "2461f054-b556-48f5-bc6d-362232d335ab"
+    client = Cartesia(api_key="YOUR_API_KEY")
+    voice_name = "Hang"
+    voice_id = "c1fdb842-8fec-4834-8b3e-11ae538a1d7c"
     voice = client.voices.get(id=voice_id)
     transcript = user_transcript
 

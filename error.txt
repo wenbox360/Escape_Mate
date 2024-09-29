@@ -1,0 +1,36 @@
+raceback (most recent call last):
+  File "/home/huiyang/Documents/MHacks-F24/main.py", line 14, in <module>
+    create_audio(data['brief'])
+  File "/home/huiyang/Documents/MHacks-F24/tts.py", line 9, in create_audio
+    voice = client.voices.get(id=voice_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/cartesia/client.py", line 207, in get
+    response = httpx.get(url, headers=self.headers, timeout=self.timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_api.py", line 210, in get
+    return request(
+           ^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_api.py", line 118, in request
+    return client.request(
+           ^^^^^^^^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_client.py", line 824, in request
+    request = self.build_request(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_client.py", line 347, in build_request
+    headers = self._merge_headers(headers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_client.py", line 410, in _merge_headers
+    merged_headers.update(headers)
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_models.py", line 203, in update
+    headers = Headers(headers)
+              ^^^^^^^^^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_models.py", line 74, in __init__
+    self._list = [
+                 ^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_models.py", line 78, in <listcomp>
+    normalize_header_value(v, encoding),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huiyang/Documents/MHacks-F24/.venv/lib/python3.11/site-packages/httpx/_utils.py", line 53, in normalize_header_value
+    return value.encode(encoding or "ascii")
+           ^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'

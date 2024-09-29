@@ -19,5 +19,6 @@ def game():
         LED4_status = received_data[3]
         LED5_status = received_data[4]
 
-        if LED1_status == '4' and LED2_status == '3' and LED3_status == '5' and LED4_status == '1' and LED5_status == '2':  
-            return True 
+        if LED1_status == 1 and LED2_status == 1 and LED3_status == 1 and LED4_status == 1 and LED5_status == 1:
+            return True
+            
