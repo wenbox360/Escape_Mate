@@ -26,8 +26,4 @@ def answer_questions(llm, question, brief):
     ])
     print(response.content)
     
-<<<<<<< HEAD
-    return response
-=======
     return response.content
->>>>>>> f2feac0 (Functionality works)
