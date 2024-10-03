@@ -11,7 +11,7 @@ STATES_COMMON_QA = {
 
 def answer_questions(llm, question, brief):
     category = llm.invoke([
-    ("system", "Please categorize the following question only into the following categories with no newline: "
+    ("system", f"Use {brief} Please categorize the following question only into the following categories with no newline: "
             "0. Wire connection, 1. How to use buttons, 2. Objective. 3. Not a question Please return only a number corresponding to the category. e.g 1"),
     ("human", question)
     ])
